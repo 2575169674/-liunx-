@@ -3,8 +3,8 @@ echo && echo -e "ConstOS7.6常用脚本---Enols
 "
 
 OpenSSL111Install(){
-    wget https://www.openssl.org/source/openssl-1.1.1s.tar.gz
-    tar -zxvf openssl-1.1.1s.tar.gz
+    wget https://github.com/openssl/openssl/archive/OpenSSL_1_1_1d.tar.gz
+    tar -zxvf OpenSSL_1_1_1d.tar.gz
     cd openssl-1.1.1s 
     ./config shared --openssldir=/usr/local/openssl --prefix=/usr/local/openssl
     make && make install
