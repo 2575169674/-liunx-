@@ -5,7 +5,7 @@ echo && echo -e "ConstOS7.6常用脚本---Enols
 OpenSSL111Install(){
     wget https://github.com/openssl/openssl/archive/OpenSSL_1_1_1d.tar.gz
     tar -zxvf OpenSSL_1_1_1d.tar.gz
-    cd openssl-1.1.1s 
+    cd OpenSSL_1_1_1d 
     ./config shared --openssldir=/usr/local/openssl --prefix=/usr/local/openssl
     make && make install
     mv /usr/bin/openssl /usr/bin/openssl.bak
