@@ -3,9 +3,9 @@ echo && echo -e "ConstOS7.6常用脚本---Enols
 "
 
 OpenSSL111Install(){
-    wget https://github.com/openssl/openssl/archive/OpenSSL_1_1_1d.tar.gz
-    tar -zxvf OpenSSL_1_1_1d.tar.gz
-    cd openssl-OpenSSL_1_1_1d
+    wget https://github.com/openssl/openssl/archive/OpenSSL_1_1_1g.tar.gz
+    tar -zxvf OpenSSL_1_1_1g.tar.gz
+    cd openssl-OpenSSL_1_1_1g
     ./config shared --openssldir=/usr/local/openssl --prefix=/usr/local/openssl
     make && make install
     mv /usr/bin/openssl /usr/bin/openssl.bak
@@ -14,6 +14,7 @@ OpenSSL111Install(){
     cd -
 }
 
+
 Python310Install(){
     whereis python3 |xargs rm -frv
     whereis pip3 |xargs rm -frv
@@ -21,24 +22,24 @@ Python310Install(){
     rm -rf /usr/bin/pip3
     yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gcc make -y
     yum install libffi-devel -y 
-    wget https://www.python.org/ftp/python/3.10.9/Python-3.10.9.tgz
+    wget https://www.python.org/ftp/python/3.9.9/Python-3.9.9.tgz
 
-    tar -zxvf Python-3.10.9.tgz
+    tar -zxvf Python-3.9.9.tgz
 
-    cd Python-3.10.9
+    cd Python-3.9.9
 
-    ./configure --prefix=/python3/Python-3.10.9  --with-ssl
+    sudo ./configure  --prefix=/python3/Python-3.9.9  --with-ssl --enable-optimizations --enable-shared
 
-    make && make install
+    make &&  make install
 
-    ln -s /python3/Python-3.10.9/bin/python3 /usr/bin/python3
-    ln -s /python3/Python-3.10.9/bin/pip3 /usr/bin/pip3
+    ln -s /python3/Python-3.9.9/bin/python3.9 /usr/bin/python3
+    ln -s /python3/Python-3.9.9/bin/pip.9 /usr/bin/pip3
     cd -
 
 }
 
 
-echo "1:安装Python3.10
+echo "1:安装Python3.9.9
 2:安装OpenSSL 1.1.1"
 read -e -p " 请输入数字:" num
 case "$num" in
